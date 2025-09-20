@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style/reset.css' %}">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'style/login.css' %}">
+</head>
+<body>
+    <div class="site-wrapper">
+        <div class="site-header"></div>
+        <div class="site-main">
+            <div class="form">
+                <div class="form-content">
+                    <form action="">
+                        <h5 class="title">NYC</h5>
+                        <div class="content">
+                            <h2 class="form-title">LOGIN</h2>
+                            <div class="content-wrap">
+                                <div class="input-field">
+                                    <input class="form-input" type="text" placeholder="User Name..">
+                                    <input class="form-input" type="password" placeholder="User password">
+                                </div>
+                                <div class="selection">
+                                    <label for="student">Student</label><input type="radio" name="category" id="student" value="STUDENT" >
+                                    <label for="teacher">Teacher</label><input type="radio" name="category" id="teacher" value="TEACHER" >
+                                    <label for="admin">Admin</label><input type="radio" name="category" id="admin" value="ADMIN" >
+                                </div>
+                                <div class="button">
+                                    <input type="submit" class="submit" value="LOGIN">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="site-footer">
+
+        </div>
+    </div>
+</body>
+</html>
