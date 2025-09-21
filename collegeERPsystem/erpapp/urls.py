@@ -1,21 +1,12 @@
 from django.contrib import admin
 from django.urls import path, include
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
-from rest_framework_simplejwt.views import (
-    TokenObtainPairView,
-    TokenRefreshView,
-    TokenVerifyView,
-)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-
-    # JWT auth
-    path("api/v1/auth/jwt/create/", TokenObtainPairView.as_view(), name="jwt_obtain_pair"),
-    path("api/v1/auth/jwt/refresh/", TokenRefreshView.as_view(), name="jwt_refresh"),
-    path("api/v1/auth/jwt/verify/", TokenVerifyView.as_view(), name="jwt_verify"),
-
-    # Other app URLs
+    path("api/v1/auth/", include("rest_framework_simplejwt.views")),
+    path("api/v1/schema/", SpectacularAPIView.as_view(), name="schema"),
+    path("api/v1/docs/", SpectacularSwaggerView.as_view(url_name="schema"), name="swagger-ui"),
     path("api/v1/accounts/", include("accounts.urls")),
     path("api/v1/academics/", include("academics.urls")),
     path("api/v1/assessment/", include("assessment.urls")),
@@ -23,4 +14,3 @@ urlpatterns = [
     path("api/v1/finance/", include("finance.urls")),
     path("api/v1/notifications/", include("notifications.urls")),
 ]
-
